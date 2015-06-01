@@ -5,7 +5,7 @@ class Player {
   playTurn(warrior) {
 
     if (this._resting) {
-      if (warrior.health() >= 6) {
+      if (warrior.health() >= 8) {
         this._resting = false;
       }
       return warrior.rest();
