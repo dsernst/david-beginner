@@ -8,6 +8,10 @@ class Player {
   }
   playTurn(warrior) {
 
+    if (warrior.feel().isCaptive()) {
+     return warrior.rescue();
+    }
+
     if (this._resting) {
       if (warrior.health() >= 14) {
         this._resting = false;
@@ -15,7 +19,7 @@ class Player {
       return warrior.rest();
     }
 
-    if (warrior.health() < 9 && !warrior.feel().isEmpty()) {
+    if (warrior.health() < 6 && !warrior.feel().isEmpty()) {
       this._resting = true;
       return warrior.walk('backward');
     }
